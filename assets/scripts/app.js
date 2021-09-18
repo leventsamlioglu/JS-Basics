@@ -1,19 +1,16 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = [];
 
-function add() {
-  currentResult = currentResult + userInput.value;
-  outputResult(currentResult, "");
-}
-
-addBtn.addEventListener("click", add);
+// Gets input from input field
 function getUserNumberInput() {
   return parseInt(usrInput.value);
 }
 
+// Generates and writes calculation log
 function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
-  outputResult(currentResult, calcDescription);
+  outputResult(currentResult, calcDescription); // from vendor file
 }
 
 function add() {
@@ -21,6 +18,14 @@ function add() {
   const initialResult = currentResult;
   currentResult += enteredNumber;
   createAndWriteOutput("+", initialResult, enteredNumber);
+  const logEntry = {
+    operation: "ADD",
+    prevResult: initialResult,
+    number: enteredNumber,
+    result: currentResult,
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
 }
 
 function subtract() {
