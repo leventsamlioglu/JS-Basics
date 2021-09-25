@@ -1,17 +1,21 @@
-const task1El1 = document.getElementById("task-1");
-const taks1El2 = document.querySelector("li");
+const ul = document.body.firstElementChild.nextElementSibling;
+const firstLi = ul.firstElementChild;
 
-task1El1.style.color = "white";
-taks1El2.style.backgroundColor = "black";
+console.log(firstLi);
 
-const docTitle1 = document.querySelector("title");
-// docTitle1.textContent = 'Assignment - Solved!';
+const section = document.querySelector("section");
+const button = document.querySelector("button");
 
-const docHead = document.head;
-const docTitle2 = document.head.querySelector("title");
+// section.style.backgroundColor = 'blue';
+section.className = "red-bg";
 
-docTitle2.textContent = "Assignment - Solved!";
+button.addEventListener("click", () => {
+  // if (section.className === 'red-bg visible') {
+  //   section.className = 'red-bg invisible';
+  // } else {
+  //   section.className = 'red-bg visible';
+  // }
 
-// const h1 = document.querySelector('h1');
-const h1 = document.getElementsByTagName("h1");
-h1[0].textContent = "Assignment - Solved!";
+  // section.classList.toggle('visible');
+  section.classList.toggle("invisible");
+});
