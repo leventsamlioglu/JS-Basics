@@ -121,16 +121,36 @@ console.log(filteredArray);
 
 // console.log(sum);
 
-const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+// const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
 
-console.log(sum);
+// console.log(sum);
 
-const data = "new york;10.99;2000";
+// const data = "new york;10.99;2000";
 
-const transformedData = data.split(";");
-transformedData[1] = +transformedData[1];
-console.log(transformedData);
+// const transformedData = data.split(";");
+// transformedData[1] = +transformedData[1];
+// console.log(transformedData);
 
-const nameFragements = ["Max", "Schwarz"];
-const name = nameFragements.join(" ");
+const nameFragments = ["Max", "Schwarz"];
+const name = nameFragments.join(" ");
 console.log(name);
+
+const copiedNameFragments = [...nameFragments];
+nameFragments.push("Mr");
+console.log(nameFragments, copiedNameFragments);
+
+console.log(Math.min(...prices));
+
+const persons = [
+  { name: "Max", age: 30 },
+  { name: "Manuel", age: 31 },
+];
+const copiedPersons = persons.map((person) => ({
+  name: person.name,
+  age: person.age,
+}));
+
+persons.push({ name: "Anna", age: 29 });
+persons[0].age = 31;
+
+console.log(persons, copiedPersons);
