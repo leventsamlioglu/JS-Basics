@@ -108,3 +108,29 @@ const sortedPrices = prices.sort((a, b) => {
 });
 // console.log(sortedPrices.reverse());
 console.log(sortedPrices);
+
+const filteredArray = prices.filter((p) => p > 6);
+
+console.log(filteredArray);
+
+// let sum = 0;
+
+// prices.forEach((price) => {
+//   sum += price
+// });
+
+// console.log(sum);
+
+const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+
+console.log(sum);
+
+const data = "new york;10.99;2000";
+
+const transformedData = data.split(";");
+transformedData[1] = +transformedData[1];
+console.log(transformedData);
+
+const nameFragements = ["Max", "Schwarz"];
+const name = nameFragements.join(" ");
+console.log(name);
