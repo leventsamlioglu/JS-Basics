@@ -49,11 +49,11 @@ div.addEventListener(
   } /*,true*/
 );
 
-button.addEventListener("mouseenter", (event) => {
-  // event.stopImmediatePropagation();
+button.addEventListener("click", function (event) {
   event.stopPropagation();
   console.log("CLICKED BUTTON");
   console.log(event);
+  console.log(this);
 });
 
 const listItems = document.querySelectorAll("li");
@@ -65,10 +65,11 @@ const list = document.querySelector("ul");
 //   });
 // });
 
-list.addEventListener("click", (event) => {
+list.addEventListener("click", function (event) {
   // console.log(event.currentTarget);
   // event.target.classList.toggle('highlight');
   event.target.closest("li").classList.toggle("highlight");
   // form.submit();
   button.click();
+  console.log(this);
 });
