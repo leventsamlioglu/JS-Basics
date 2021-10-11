@@ -1,5 +1,4 @@
 const buttons = document.querySelectorAll("button");
-console.log("buttons =>>>", buttons);
 
 const buttonClickHandler = (event) => {
   event.target.disabled = true;
@@ -12,7 +11,7 @@ const buttonClickHandler = (event) => {
 
 // button.onclick = buttonClickHandler;
 
-const boundFn = buttonClickHandler.bind(this);
+// const boundFn = buttonClickHandler.bind(this);
 
 // buttons.forEach((btn) => {
 //   btn.addEventListener("click", buttonClickHandler);
@@ -24,10 +23,17 @@ const boundFn = buttonClickHandler.bind(this);
 
 // button.addEventListener("click", anotherButtonClickHandler);
 
-buttons.forEach((btn) => {
-  btn.addEventListener("mouseenter", buttonClickHandler);
-});
+// buttons.forEach((btn) => {
+//   btn.addEventListener("mouseenter", buttonClickHandler);
+// });
 
-window.addEventListener("scroll", (event) => {
-  console.log(event);
+// window.addEventListener("scroll", (event) => {
+//   console.log(event);
+// });
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("event", event);
 });
