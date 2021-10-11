@@ -41,12 +41,12 @@ form.addEventListener("submit", (event) => {
 
 const div = document.querySelector("div");
 
-div.addEventListener("click", (event) => {
+div.addEventListener("mouseenter", (event) => {
   console.log("CLICKED DIV");
   console.log(event);
 });
 
-button.addEventListener("click", (event) => {
+button.addEventListener("mouseenter", (event) => {
   event.stopPropagation();
   console.log("CLICKED BUTTON");
   console.log(event);
