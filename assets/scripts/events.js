@@ -14,12 +14,20 @@ const buttonClickHandler = (event) => {
 
 const boundFn = buttonClickHandler.bind(this);
 
-buttons.forEach((btn) => {
-  btn.addEventListener("click", buttonClickHandler);
-});
+// buttons.forEach((btn) => {
+//   btn.addEventListener("click", buttonClickHandler);
+// });
 
 // setTimeout(() => {
 //   button.removeEventListener("click", buttonClickHandler);
 // }, 2000);
 
 // button.addEventListener("click", anotherButtonClickHandler);
+
+buttons.forEach((btn) => {
+  btn.addEventListener("mouseenter", buttonClickHandler);
+});
+
+window.addEventListener("scroll", (event) => {
+  console.log(event);
+});
