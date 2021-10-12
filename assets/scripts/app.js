@@ -148,6 +148,24 @@ class ProjectList {
       );
     }
     console.log(this.projects);
+    this.connectDroppable();
+  }
+
+  connectDroppable() {
+    const list = document.querySelector(`#${this.type}-projects ul`);
+
+    list.addEventListener("dragenter", (event) => {
+      if (event.dataTransfer.types[0] === "text/plain") {
+        list.parentElement.classList.add("droppable");
+        event.preventDefault();
+      }
+    });
+
+    list.addEventListener("dragover", (event) => {
+      if (event.dataTransfer.types[0] === "text/plain") {
+        event.preventDefault();
+      }
+    });
   }
 
   setSwitchHandlerFunction(switchHandlerFunction) {
