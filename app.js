@@ -36,15 +36,19 @@
 
 // Factory Functions
 
+let multiplier = 1.1;
+
 function createTaxCalculator(tax) {
   function calculateTax(amount) {
-    return amount * tax;
+    return amount * tax * multiplier;
   }
   return calculateTax;
 }
 
 const claculateVatAmount = createTaxCalculator(0.19);
 const claculateIncomeTaxAmount = createTaxCalculator(0.25);
+
+multiplier = 1.2;
 
 console.log(claculateVatAmount(100));
 console.log(claculateIncomeTaxAmount(200));
