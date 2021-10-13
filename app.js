@@ -1,4 +1,4 @@
-// // Pure Functions
+// // -------------Pure Functions-------------
 
 // function add(num1, num2) {
 //   return num1 + num2;
@@ -13,7 +13,7 @@
 
 // console.log(addRandom(5));
 
-// // Impure Functions
+// // -------------Impure Functions-------------
 
 // let previousResult = 0;
 
@@ -34,7 +34,7 @@
 
 // printHobbies(hobbies);
 
-// Factory Functions
+// -------------Factory Functions-------------
 
 // let multiplier = 1.1;
 
@@ -53,7 +53,7 @@
 // console.log(claculateVatAmount(100));
 // console.log(claculateIncomeTaxAmount(200));
 
-// // Scopes and environments
+// // -------------Scopes and environments-------------
 
 // let userName = "Max";
 
@@ -68,15 +68,59 @@
 
 // greetUser();
 
-// Recursion
+// -------------Recursion-------------
 
-function powerOf(x, n) {
-  //   if (n === 1) {
-  //     return x;
-  //   }
-  //   return x * powerOf(x, n - 1);
+// function powerOf(x, n) {
+//   //   if (n === 1) {
+//   //     return x;
+//   //   }
+//   //   return x * powerOf(x, n - 1);
 
-  return n === 1 ? x : x * powerOf(x, n - 1);
+//   return n === 1 ? x : x * powerOf(x, n - 1);
+// }
+
+// console.log(powerOf(2, 3));
+
+// -------------Advanced Recursion-------------
+
+const myself = {
+  name: "Max",
+  friends: [
+    {
+      name: "Manuel",
+      friends: [
+        {
+          name: "Chris",
+          friends: [
+            {
+              name: "Hari",
+            },
+            {
+              name: "Amilia",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Julia",
+    },
+  ],
+};
+
+function getFriendNames(person) {
+  const collectedNames = [];
+
+  if (!person.friends) {
+    return [];
+  }
+
+  for (const friend of person.friends) {
+    collectedNames.push(friend.name);
+    collectedNames.push(...getFriendNames(friend));
+  }
+
+  return collectedNames;
 }
 
-console.log(powerOf(2, 3));
+console.log(getFriendNames(myself));
