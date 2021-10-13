@@ -36,34 +36,47 @@
 
 // Factory Functions
 
-let multiplier = 1.1;
+// let multiplier = 1.1;
 
-function createTaxCalculator(tax) {
-  function calculateTax(amount) {
-    return amount * tax * multiplier;
-  }
-  return calculateTax;
+// function createTaxCalculator(tax) {
+//   function calculateTax(amount) {
+//     return amount * tax * multiplier;
+//   }
+//   return calculateTax;
+// }
+
+// const claculateVatAmount = createTaxCalculator(0.19);
+// const claculateIncomeTaxAmount = createTaxCalculator(0.25);
+
+// multiplier = 1.2;
+
+// console.log(claculateVatAmount(100));
+// console.log(claculateIncomeTaxAmount(200));
+
+// // Scopes and environments
+
+// let userName = "Max";
+
+// function greetUser() {
+//   // let name = 'Anna';
+//   console.log("Hi " + name);
+// }
+
+// let name = "Maximilian";
+
+// userName = "Manuel";
+
+// greetUser();
+
+// Recursion
+
+function powerOf(x, n) {
+  //   if (n === 1) {
+  //     return x;
+  //   }
+  //   return x * powerOf(x, n - 1);
+
+  return n === 1 ? x : x * powerOf(x, n - 1);
 }
 
-const claculateVatAmount = createTaxCalculator(0.19);
-const claculateIncomeTaxAmount = createTaxCalculator(0.25);
-
-multiplier = 1.2;
-
-console.log(claculateVatAmount(100));
-console.log(claculateIncomeTaxAmount(200));
-
-// Scopes and environments
-
-let userName = "Max";
-
-function greetUser() {
-  // let name = 'Anna';
-  console.log("Hi " + name);
-}
-
-let name = "Maximilian";
-
-userName = "Manuel";
-
-greetUser();
+console.log(powerOf(2, 3));
