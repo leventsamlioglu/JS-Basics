@@ -1,126 +1,57 @@
-// // -------------Pure Functions-------------
+const button = document.querySelector("button");
+const output = document.querySelector("p");
 
-// function add(num1, num2) {
-//   return num1 + num2;
-// }
-
-// console.log(add(1, 5)); // 6
-// console.log(add(12, 15)); // 27
-
-// function addRandom(num1) {
-//   return num1 + Math.random();
-// }
-
-// console.log(addRandom(5));
-
-// // -------------Impure Functions-------------
-
-// let previousResult = 0;
-
-// function addMoreNumbers(num1, num2) {
-//   const sum = num1 + num2;
-//   previousResult = sum; // Side effect
-//   return sum;
-// }
-
-// console.log(addMoreNumbers(1, 5));
-
-// const hobbies = ["Sports", "Cooking"];
-
-// function printHobbies(h) {
-//   h.push("NEW HOBBY"); // Side effect
-//   console.log(h);
-// }
-
-// printHobbies(hobbies);
-
-// -------------Factory Functions-------------
-
-// let multiplier = 1.1;
-
-// function createTaxCalculator(tax) {
-//   function calculateTax(amount) {
-//     return amount * tax * multiplier;
-//   }
-//   return calculateTax;
-// }
-
-// const claculateVatAmount = createTaxCalculator(0.19);
-// const claculateIncomeTaxAmount = createTaxCalculator(0.25);
-
-// multiplier = 1.2;
-
-// console.log(claculateVatAmount(100));
-// console.log(claculateIncomeTaxAmount(200));
-
-// // -------------Scopes and environments-------------
-
-// let userName = "Max";
-
-// function greetUser() {
-//   // let name = 'Anna';
-//   console.log("Hi " + name);
-// }
-
-// let name = "Maximilian";
-
-// userName = "Manuel";
-
-// greetUser();
-
-// -------------Recursion-------------
-
-// function powerOf(x, n) {
-//   //   if (n === 1) {
-//   //     return x;
-//   //   }
-//   //   return x * powerOf(x, n - 1);
-
-//   return n === 1 ? x : x * powerOf(x, n - 1);
-// }
-
-// console.log(powerOf(2, 3));
-
-// -------------Advanced Recursion-------------
-
-const myself = {
-  name: "Max",
-  friends: [
-    {
-      name: "Manuel",
-      friends: [
-        {
-          name: "Chris",
-          friends: [
-            {
-              name: "Hari",
-            },
-            {
-              name: "Amilia",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Julia",
-    },
-  ],
+const getPosition = (opts) => {
+  const promise = new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      (success) => {
+        resolve(success);
+      },
+      (error) => {
+        reject(error);
+      },
+      opts
+    );
+  });
+  return promise;
 };
 
-function getFriendNames(person) {
-  const collectedNames = [];
+const setTimer = (duration) => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Done!");
+    }, duration);
+  });
+  return promise;
+};
 
-  if (!person.friends) {
-    return [];
-  }
+function trackUserHandler() {
+  let positionData;
 
-  for (const friend of person.friends) {
-    collectedNames.push(friend.name);
-    collectedNames.push(...getFriendNames(friend));
-  }
-
-  return collectedNames;
+  getPosition()
+    .then((posData) => {
+      positionData = posData;
+      return setTimer(2000);
+    })
+    .catch((err) => {
+      console.log(err);
+      return "on we go...";
+    })
+    .then((data) => {
+      console.log(data, positionData);
+    });
+  setTimer(1000).then(() => {
+    console.log("Timer done!");
+  });
+  console.log("Getting position...");
 }
 
-console.log(getFriendNames(myself));
+button.addEventListener("click", trackUserHandler);
+
+// let result = 0;
+
+// for (let i = 0; i < 100000000; i++) {
+//   result += i;
+// }
+
+// console.log(result);
