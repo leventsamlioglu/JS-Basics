@@ -54,12 +54,21 @@ function trackUserHandler() {
   console.log("Getting position..."); // 15 Getting position...
 } // 16
 
-button.addEventListener("click", trackUserHandler); //1
+// async function trackUserHandler() {
+//   let posData;
+//   let timerData;
+//   try {
+//     posData = await getPosition();
+//     timerData = await setTimer(2000);
+//   } catch (error) {
+//     console.log(error);
+//   }
+//   console.log(timerData, posData);
 
-// let result = 0;
-
-// for (let i = 0; i < 100000000; i++) {
-//   result += i;
+//   setTimer(1000).then(() => {
+//     console.log('Timer done!');
+//   });
+//   console.log('Getting position...');
 // }
 
-// console.log(result);
+button.addEventListener("click", trackUserHandler); //1
