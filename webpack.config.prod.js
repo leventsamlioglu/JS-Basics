@@ -8,5 +8,5 @@ module.exports = {
     path: path.resolve(__dirname, "assets", "scripts"),
     publicPath: "/assets/scripts/",
   },
-  devtool: "eval-cheap-module-source-map",
+  devtool: "cheap-source-map",
 };

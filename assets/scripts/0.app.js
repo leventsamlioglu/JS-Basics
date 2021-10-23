@@ -1,27 +1,117 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
-
-/***/ "./src/App/Component.js":
-/*!******************************!*\
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([
+  [0],
+  {
+    /***/ "./src/App/Component.js":
+      /*!******************************!*\
   !*** ./src/App/Component.js ***!
   \******************************/
-/*! exports provided: doSomething, default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+      /*! exports provided: doSomething, default */
+      /***/ function (module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "doSomething",
+          function () {
+            return doSomething;
+          }
+        );
+        function doSomething() {}
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"doSomething\", function() { return doSomething; });\nfunction doSomething() {};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n  constructor(hostElementId, insertBefore = false) {\n    if (hostElementId) {\n      this.hostElement = document.getElementById(hostElementId);\n    } else {\n      this.hostElement = document.body;\n    }\n    this.insertBefore = insertBefore;\n  }\n\n  detach() {\n    if (this.element) {\n      this.element.remove();\n      // this.element.parentElement.removeChild(this.element);\n    }\n  }\n\n  attach() {\n    this.hostElement.insertAdjacentElement(\n      this.insertBefore ? 'afterbegin' : 'beforeend',\n      this.element\n    );\n  }\n});\n\n//# sourceURL=webpack:///./src/App/Component.js?");
+        /* harmony default export */ __webpack_exports__["default"] = class {
+          constructor(hostElementId, insertBefore = false) {
+            if (hostElementId) {
+              this.hostElement = document.getElementById(hostElementId);
+            } else {
+              this.hostElement = document.body;
+            }
+            this.insertBefore = insertBefore;
+          }
 
-/***/ }),
+          detach() {
+            if (this.element) {
+              this.element.remove();
+              // this.element.parentElement.removeChild(this.element);
+            }
+          }
 
-/***/ "./src/App/Tooltip.js":
-/*!****************************!*\
+          attach() {
+            this.hostElement.insertAdjacentElement(
+              this.insertBefore ? "afterbegin" : "beforeend",
+              this.element
+            );
+          }
+        };
+
+        /***/
+      },
+
+    /***/ "./src/App/Tooltip.js":
+      /*!****************************!*\
   !*** ./src/App/Tooltip.js ***!
   \****************************/
-/*! exports provided: Tooltip */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+      /*! exports provided: Tooltip */
+      /***/ function (module, __webpack_exports__, __webpack_require__) {
+        "use strict";
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export (binding) */ __webpack_require__.d(
+          __webpack_exports__,
+          "Tooltip",
+          function () {
+            return Tooltip;
+          }
+        );
+        /* harmony import */ var _Component_js__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! ./Component.js */ "./src/App/Component.js");
+        // eslint-disable-next-line no-unused-vars
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Tooltip\", function() { return Tooltip; });\n/* harmony import */ var _Component_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Component.js */ \"./src/App/Component.js\");\n// eslint-disable-next-line no-unused-vars\n\n\nconsole.log(\"Tooltip running\");\n\nclass Tooltip extends _Component_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"] {\n  constructor(closeNotifierFunction, text, hostElementId) {\n    super(hostElementId);\n    this.closeNotifier = closeNotifierFunction;\n    this.text = text;\n    this.closeTooltip = () => {\n      this.detach();\n      this.closeNotifier();\n    };\n    this.create();\n  }\n\n  create() {\n    const tooltipElement = document.createElement(\"div\");\n    tooltipElement.className = \"card\";\n    const tooltipTemplate = document.getElementById(\"tooltip\");\n    const tooltipBody = document.importNode(tooltipTemplate.content, true);\n    tooltipBody.querySelector(\"p\").textContent = this.text;\n    tooltipElement.append(tooltipBody);\n\n    const hostElPosLeft = this.hostElement.offsetLeft;\n    const hostElPosTop = this.hostElement.offsetTop;\n    const hostElHeight = this.hostElement.clientHeight;\n    const parentElementScrolling = this.hostElement.parentElement.scrollTop;\n\n    const x = hostElPosLeft + 20;\n    const y = hostElPosTop + hostElHeight - parentElementScrolling - 10;\n\n    tooltipElement.style.position = \"absolute\";\n    tooltipElement.style.left = x + \"px\"; // 500px\n    tooltipElement.style.top = y + \"px\";\n\n    tooltipElement.addEventListener(\"click\", this.closeTooltip);\n    this.element = tooltipElement;\n  }\n}\n\n\n//# sourceURL=webpack:///./src/App/Tooltip.js?");
+        console.log("Tooltip running");
 
-/***/ })
+        class Tooltip extends _Component_js__WEBPACK_IMPORTED_MODULE_0__[
+          "default"
+        ] {
+          constructor(closeNotifierFunction, text, hostElementId) {
+            super(hostElementId);
+            this.closeNotifier = closeNotifierFunction;
+            this.text = text;
+            this.closeTooltip = () => {
+              this.detach();
+              this.closeNotifier();
+            };
+            this.create();
+          }
 
-}]);
+          create() {
+            const tooltipElement = document.createElement("div");
+            tooltipElement.className = "card";
+            const tooltipTemplate = document.getElementById("tooltip");
+            const tooltipBody = document.importNode(
+              tooltipTemplate.content,
+              true
+            );
+            tooltipBody.querySelector("p").textContent = this.text;
+            tooltipElement.append(tooltipBody);
+
+            const hostElPosLeft = this.hostElement.offsetLeft;
+            const hostElPosTop = this.hostElement.offsetTop;
+            const hostElHeight = this.hostElement.clientHeight;
+            const parentElementScrolling =
+              this.hostElement.parentElement.scrollTop;
+
+            const x = hostElPosLeft + 20;
+            const y = hostElPosTop + hostElHeight - parentElementScrolling - 10;
+
+            tooltipElement.style.position = "absolute";
+            tooltipElement.style.left = x + "px"; // 500px
+            tooltipElement.style.top = y + "px";
+
+            tooltipElement.addEventListener("click", this.closeTooltip);
+            this.element = tooltipElement;
+          }
+        }
+
+        /***/
+      },
+  },
+]);
+//# sourceMappingURL=0.app.js.map
