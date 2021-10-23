@@ -1,26 +1,26 @@
-import Cmp, { doSomething } from './Component.js';
+// eslint-disable-next-line no-unused-vars
+import Cmp, { doSomething } from "./Component.js";
 
-console.log('Tooltip running');
+console.log("Tooltip running");
 
 export class Tooltip extends Cmp {
   constructor(closeNotifierFunction, text, hostElementId) {
     super(hostElementId);
     this.closeNotifier = closeNotifierFunction;
     this.text = text;
+    this.closeTooltip = () => {
+      this.detach();
+      this.closeNotifier();
+    };
     this.create();
   }
 
-  closeTooltip = () => {
-    this.detach();
-    this.closeNotifier();
-  };
-
   create() {
-    const tooltipElement = document.createElement('div');
-    tooltipElement.className = 'card';
-    const tooltipTemplate = document.getElementById('tooltip');
+    const tooltipElement = document.createElement("div");
+    tooltipElement.className = "card";
+    const tooltipTemplate = document.getElementById("tooltip");
     const tooltipBody = document.importNode(tooltipTemplate.content, true);
-    tooltipBody.querySelector('p').textContent = this.text;
+    tooltipBody.querySelector("p").textContent = this.text;
     tooltipElement.append(tooltipBody);
 
     const hostElPosLeft = this.hostElement.offsetLeft;
@@ -31,11 +31,11 @@ export class Tooltip extends Cmp {
     const x = hostElPosLeft + 20;
     const y = hostElPosTop + hostElHeight - parentElementScrolling - 10;
 
-    tooltipElement.style.position = 'absolute';
-    tooltipElement.style.left = x + 'px'; // 500px
-    tooltipElement.style.top = y + 'px';
+    tooltipElement.style.position = "absolute";
+    tooltipElement.style.left = x + "px"; // 500px
+    tooltipElement.style.top = y + "px";
 
-    tooltipElement.addEventListener('click', this.closeTooltip);
+    tooltipElement.addEventListener("click", this.closeTooltip);
     this.element = tooltipElement;
   }
 }
