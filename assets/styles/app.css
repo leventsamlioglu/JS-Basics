@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: sans-serif;
 }
@@ -8,12 +12,11 @@ body {
 
 button {
   font: inherit;
-  background: blue;
+  background: #ff0062;
   color: white;
-  padding: 1rem 2rem;
+  border: 1px solid #ff0062;
+  padding: 0.5rem 1.5rem;
   cursor: pointer;
-  border: 1px solid blue;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.26);
 }
 
 button:focus {
@@ -22,6 +25,7 @@ button:focus {
 
 button:hover,
 button:active {
-  background: #7904ff;
-  border-color: #7904ff;
+  background: #ff2579;
+  border-color: #ff2579;
+  color: white;
 }
