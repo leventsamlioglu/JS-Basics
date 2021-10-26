@@ -23,7 +23,7 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
-    "core-js": "^3.2.1",
+    "core-js": "^3.19.0",
     "regenerator-runtime": "^0.13.3"
   }
 }
