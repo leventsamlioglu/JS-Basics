@@ -14,7 +14,7 @@ module.exports = {
   },
   devtool: "eval-cheap-module-source-map",
   devServer: {
-    contentBase: "./dist",
+    static: "./dist",
   },
   module: {
     rules: [
