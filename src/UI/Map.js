@@ -13,7 +13,8 @@ export class Map {
       center: coordinates, // starting position [lng, lat]
       zoom: 16, // starting zoom
     });
-    //Set marker options.
+
+    // Set marker options.
     const marker = new mapboxgl.Marker({
       color: "#FF0000",
       draggable: true,

@@ -12,7 +12,6 @@ class PlaceFinder {
   }
 
   selectPlace(coordinates) {
-    console.log(this);
     if (this.map) {
       this.map.render(coordinates);
     } else {
