@@ -29,9 +29,10 @@
     "url": "https://github.com/leventsamlioglu/JS-Basics/issues"
   },
   "homepage": "https://github.com/leventsamlioglu/JS-Basics#readme",
-  "description": "",
   "dependencies": {
     "core-js": "^3.19.0",
+    "git": "^0.1.5",
     "regenerator-runtime": "^0.13.9"
-  }
+  },
+  "description": ""
 }

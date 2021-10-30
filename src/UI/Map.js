@@ -6,7 +6,7 @@ export class Map {
 
   render(coordinates) {
     mapboxgl.accessToken =
-      "pk.eyJ1IjoibGVvbmluIiwiYSI6ImNrdmF4ZWxjZTAzYmsyd242c2R1cjMycHQifQ.7mHrlaWgvgcmx2oV-YvX-w";
+      "pk.eyJ1IjoibGVvbmluIiwiYSI6ImNrdmNmb3NzNDBsdzAyd3FubnNucTAxeGEifQ.0V3cquu_EzKgw8Oqb6UV5A";
     const map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/streets-v11", // style URL
