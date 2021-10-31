@@ -38,11 +38,10 @@ class PlaceFinder {
       this.map = new Map(coordinates);
     }
     this.shareBtn.disabled = false;
-    console.log(address);
     const sharedLinkInputElement = document.getElementById("share-link");
     sharedLinkInputElement.value = `${
       location.origin
-    }/my-place?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${
+    }/dist/my-place/?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${
       coordinates.lng
     }`;
   }

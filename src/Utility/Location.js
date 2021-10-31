@@ -12,8 +12,10 @@ export async function getAddressFromCoords(coords) {
   if (data.error_message) {
     throw new Error(data.error_message);
   }
-  // const address = data.features[0].place_name;
-  // return address;
+  console.log("1.data", data);
+  const address = data.features[0].place_name;
+  console.log("Your address is:", address);
+  return address;
 }
 
 export async function getCoordsFromAddress(address) {
@@ -29,6 +31,9 @@ export async function getCoordsFromAddress(address) {
   if (data.error_message) {
     throw new Error(data.error_message);
   }
+  console.log("2.data", data);
+  const address2 = data.features[0].place_name;
+  console.log("Your address is:", address2);
 
   const coordinates = Object.assign({
     // convert array to object

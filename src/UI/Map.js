@@ -14,6 +14,9 @@ export class Map {
       zoom: 16, // starting zoom
     });
 
+    // Add controller to map
+    map.addControl(new mapboxgl.NavigationControl());
+
     // Set marker options.
     const marker = new mapboxgl.Marker({
       color: "#FF0000",
