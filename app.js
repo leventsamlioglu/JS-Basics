@@ -53,28 +53,48 @@
 
 // GENERATORS
 
-const company = {
-  employees: ["Max", "Manu", "Anna"],
-  [Symbol.iterator]: function* employeeGenerator() {
-    // getEmployee: function* employeeGenerator() {
-    let currentEmployee = 0;
-    while (currentEmployee < this.employees.length) {
-      yield this.employees[currentEmployee];
-      currentEmployee++;
-    }
-  },
+// const company = {
+//   employees: ["Max", "Manu", "Anna"],
+//   [Symbol.iterator]: function* employeeGenerator() {
+//     // getEmployee: function* employeeGenerator() {
+//     let currentEmployee = 0;
+//     while (currentEmployee < this.employees.length) {
+//       yield this.employees[currentEmployee];
+//       currentEmployee++;
+//     }
+//   },
+// };
+
+// for (const employee of company) {
+//   console.log(employee);
+// }
+
+// console.log([...company]);
+
+// // const it = company.getEmployee();
+
+// // console.log(it.next());
+// // console.log(it.next());
+// // console.log(it.next());
+// // console.log(it.next());
+// // console.log(it.next());
+
+// REFLECT API
+
+const course = {
+  title: "JavaScript - The Complete Guide",
 };
 
-for (const employee of company) {
-  console.log(employee);
-}
+Reflect.setPrototypeOf(course, {
+  toString() {
+    return this.title;
+  },
+});
 
-console.log([...company]);
+Reflect.deleteProperty(course, "title");
 
-// const it = company.getEmployee();
+// Object.deleteProperty(course, 'title');
 
-// console.log(it.next());
-// console.log(it.next());
-// console.log(it.next());
-// console.log(it.next());
-// console.log(it.next());
+// delete course.title;
+
+console.log(course);
