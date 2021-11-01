@@ -81,20 +81,42 @@
 
 // REFLECT API
 
+// const course = {
+//   title: "JavaScript - The Complete Guide",
+// };
+
+// Reflect.setPrototypeOf(course, {
+//   toString() {
+//     return this.title;
+//   },
+// });
+
+// Reflect.deleteProperty(course, "title");
+
+// // Object.deleteProperty(course, 'title');
+
+// // delete course.title;
+
+// console.log(course);
+
+// PROXY API
+
+// ---
+
 const course = {
   title: "JavaScript - The Complete Guide",
+  rating: "5 star",
 };
 
-Reflect.setPrototypeOf(course, {
-  toString() {
-    return this.title;
+const courseHandler = {
+  get(obj, propertyName) {
+    console.log(propertyName);
+    if (propertyName === "length") {
+      return 0;
+    }
+    return obj[propertyName] || "NOT FOUND";
   },
-});
+};
 
-Reflect.deleteProperty(course, "title");
-
-// Object.deleteProperty(course, 'title');
-
-// delete course.title;
-
-console.log(course);
+const pCourse = new Proxy(course, courseHandler);
+console.log(pCourse.title, pCourse.length, pCourse.rating, pCourse.dimension);
