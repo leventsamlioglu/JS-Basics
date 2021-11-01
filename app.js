@@ -105,7 +105,6 @@
 
 const course = {
   title: "JavaScript - The Complete Guide",
-  rating: "5 star",
 };
 
 const courseHandler = {
@@ -116,7 +115,16 @@ const courseHandler = {
     }
     return obj[propertyName] || "NOT FOUND";
   },
+  set(obj, propertyName, newValue) {
+    console.log("Sending data ...");
+    if (propertyName === "rating") {
+      return;
+    }
+    obj[propertyName] = newValue;
+  },
 };
 
 const pCourse = new Proxy(course, courseHandler);
-console.log(pCourse.title, pCourse.length, pCourse.rating, pCourse.dimension);
+pCourse.rating = 5;
+pCourse.new = "new";
+console.log(pCourse.title, pCourse.length, pCourse.rating, pCourse.new);
