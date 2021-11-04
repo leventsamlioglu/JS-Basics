@@ -46,6 +46,7 @@ __webpack_require__.r(__webpack_exports__);
 var products = _products__WEBPACK_IMPORTED_MODULE_10__.products;
 function deleteProduct(prodId) {
   var updatedProducts = [];
+  var deletedProduct;
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
   var _iteratorError = undefined;
@@ -56,6 +57,8 @@ function deleteProduct(prodId) {
 
       if (prod.id !== prodId) {
         updatedProducts.push(prod);
+      } else {
+        deletedProduct = prod;
       }
     }
   } catch (err) {
@@ -74,10 +77,9 @@ function deleteProduct(prodId) {
   }
 
   products = updatedProducts;
-  (0,_rendering__WEBPACK_IMPORTED_MODULE_9__.renderProducts)(products, deleteProduct);
+  (0,_rendering__WEBPACK_IMPORTED_MODULE_9__.updateProducts)(deletedProduct, prodId, deleteProduct, false);
 }
 function addProduct(event) {
-  event.preventDefault();
   var titleEl = document.querySelector('#new-product #title');
   var priceEl = document.querySelector('#new-product #price');
   var title = titleEl.value;
@@ -94,7 +96,7 @@ function addProduct(event) {
     price: price
   };
   products.unshift(newProduct);
-  (0,_rendering__WEBPACK_IMPORTED_MODULE_9__.renderProducts)(products, deleteProduct);
+  (0,_rendering__WEBPACK_IMPORTED_MODULE_9__.updateProducts)(newProduct, newProduct.id, deleteProduct, true);
 }
 
 /***/ })
