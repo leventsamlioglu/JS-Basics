@@ -4,14 +4,14 @@ const CleanPlugin = require("clean-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    shop: "./src/non-optimized/shop.js",
+    shop: "./src/optimized/shop.js",
   },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist", "assets", "scripts"),
     publicPath: "assets/scripts/",
   },
-  devtool: "eval-cheap-module-source-map",
+  devtool: "source-map",
   devServer: {
     static: "./dist",
   },
