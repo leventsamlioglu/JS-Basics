@@ -37,7 +37,6 @@ var Admin = /** @class */ (function (_super) {
 }(User));
 var user = new User('Max', 30);
 console.log(user.name);
-// -------------------------------------------------------------------------------
 var num1Input = document.getElementById('num1');
 var num2Input = document.getElementById('num2');
 var buttonElement = document.querySelector('button');
@@ -76,3 +75,8 @@ buttonElement.addEventListener('click', function () {
     printResult(result, OutputMode.ALERT);
     // printResult(result, 'window');
 });
+function logAndEcho(val) {
+    console.log(val);
+    return val;
+}
+logAndEcho('Hi there!').split(' ');

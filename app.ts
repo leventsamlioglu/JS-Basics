@@ -29,10 +29,9 @@ class Admin extends User {
     super(name, age);
   }
 }
+
 const user = new User('Max', 30);
 console.log(user.name);
-
-// -------------------------------------------------------------------------------
 
 const num1Input = document.getElementById('num1') as HTMLInputElement;
 const num2Input = <HTMLInputElement>document.getElementById('num2');
@@ -68,7 +67,7 @@ interface CalculationContainer {
 
 type CalculationResults = CalculationContainer[];
 
-const results: CalculationResults = [];
+const results: Array<CalculationContainer> = [];
 const names = ['Max'];
 
 buttonElement.addEventListener('click', () => {
@@ -88,3 +87,10 @@ buttonElement.addEventListener('click', () => {
   printResult(result, OutputMode.ALERT);
   // printResult(result, 'window');
 });
+
+function logAndEcho<T>(val: T) {
+  console.log(val);
+  return val;
+}
+
+logAndEcho<string>('Hi there!').split(' ');
