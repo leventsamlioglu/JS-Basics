@@ -1,3 +1,4 @@
+"use strict";
 // class User {
 //   name: string;
 //   private age: number;
