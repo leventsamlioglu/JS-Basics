@@ -6,16 +6,24 @@ function add(a: number, b: number) {
   return a + b;
 }
 
-// function printResult(result) {
-//   console.log(result);
-// }
+type PrintMode = 'console' | 'alert';
+
+function printResult(result: string | number, printMode: PrintMode) {
+  if (printMode === 'console') {
+    console.log(result);
+  } else if (printMode === 'alert') {
+    alert(result);
+  }
+}
 
 // const result = add(5, 3);
 // let isDone = false;
 
 // printResult(result);
 
-const results: { res: number, print: () => void }[] = [];
+type CalculationResults = { res: number; print: () => void }[];
+
+const results: CalculationResults = [];
 const names = ['Max'];
 
 buttonElement.addEventListener('click', () => {
@@ -30,5 +38,8 @@ buttonElement.addEventListener('click', () => {
   };
   results.push(resultContainer);
   // results.push(5);
-  results[0].print();
+  // results[0].print();
+  printResult(result, 'console');
+  printResult(result, 'alert');
+  // printResult(result, 'window');
 });
