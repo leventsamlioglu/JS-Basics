@@ -10,22 +10,16 @@
         box-sizing: border-box;
       }
 
-      html {
-        --color-primary: #a4fcda;
+      body {
+        margin: 2rem;
         font-family: sans-serif;
       }
     </style>
-    <script src="tooltip.js"></script>
-    <script src="confirm-link.js"></script>
+    <script src="modal.js"></script>
   </head>
   <body>
-    <p>
-      <uc-tooltip class="important" text="Web Components is a set of standards.">
-        <span class="highlight">Web Components</span>
-      </uc-tooltip>
-      are awesome!
-    </p>
-    <uc-tooltip></uc-tooltip>
-    <a is="uc-confirm-link" href="https://www.google.com">Google</a>
+   <uc-modal></uc-modal>
+   <p>Please confirm your choice.</p>
+   <button>Show Details & Confirm</button>
   </body>
 </html>
