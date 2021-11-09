@@ -28,7 +28,9 @@
      const modal = document.querySelector('uc-modal');
 
      confirmButton.addEventListener('click', () => {
-       modal.setAttribute('opened', '');
+      //  modal.setAttribute('opened', '');
+      modal.open();
+      console.log(modal.isOpen);
      });
    </script>
   </body>
